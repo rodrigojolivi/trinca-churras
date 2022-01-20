@@ -46,7 +46,11 @@ namespace TrincaChurras.API.Configurations
         {
             app.UseSwagger();
 
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "TrincaChurras.API v1"));
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "TrincaChurras.API v1");
+                c.DefaultModelsExpandDepth(-1);
+            });
 
             return app;
         }
