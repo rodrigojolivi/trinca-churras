@@ -70,9 +70,9 @@ namespace TrincaChurras.API.Controllers.v1
         }
 
         [HttpPost("{idSchedule:guid}/participants")]
-        public async Task<IActionResult> AddParticipantAsync(AddParticipantViewModel addParticipantViewModel)
+        public async Task<IActionResult> AddParticipantAsync(Guid idSchedule, AddParticipantViewModel addParticipantViewModel)
         {
-            var participant = new Participant(addParticipantViewModel.IdSchedule, addParticipantViewModel.Name, addParticipantViewModel.Value);
+            var participant = new Participant(idSchedule, addParticipantViewModel.Name, addParticipantViewModel.Value);
 
             var notifications = await _scheduleService.AddParticipantAsync(participant);
 
